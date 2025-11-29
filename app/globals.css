@@ -1,0 +1,519 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-50: 245 247 255;
+    --primary-500: 102 126 234;
+    --primary-600: 90 111 216;
+    --secondary-500: 118 75 162;
+    --transition-duration: 500ms;
+    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --primary-50: 30 41 59;
+    --primary-500: 99 102 241;
+    --primary-600: 79 70 229;
+    --secondary-500: 139 92 246;
+  }
+
+  /* Smooth theme transition for all elements */
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing);
+  }
+
+  /* Special handling for images and videos to prevent flashing */
+  img, video, iframe {
+    transition-property: opacity, filter;
+  }
+
+  /* Prevent image dragging, selection, and copying for kiosk */
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: auto;
+  }
+
+  /* Prevent transition on page load */
+  .no-transition * {
+    transition-duration: 0s !important;
+  }
+
+  /* Add theme transition class */
+  .theme-transition {
+    transition-duration: var(--transition-duration) !important;
+  }
+
+  /* Theme transitioning state */
+  body.theme-transitioning {
+    overflow: hidden;
+  }
+
+  body.theme-transitioning * {
+    transition-duration: 0.5s !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 antialiased;
+    @apply dark:from-gray-900 dark:to-gray-800 dark:text-gray-100;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    @apply h-full;
+    /* Prevent zoom on all devices */
+    touch-action: pan-x pan-y;
+    -ms-touch-action: pan-x pan-y;
+  }
+
+  body {
+    @apply h-full overflow-x-hidden;
+    /* Additional zoom prevention */
+    touch-action: pan-x pan-y;
+    -ms-touch-action: pan-x pan-y;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Prevent zoom on all elements */
+  * {
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+  }
+
+  /* Global Scrollbar Styles - Applied to ALL scrollable elements (Chrome/Edge/Safari) */
+  *::-webkit-scrollbar {
+    width: 48px; /* Extra thick for kiosk touchscreens */
+    height: 48px; /* For horizontal scrollbars */
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgb(229, 231, 235); /* gray-200 */
+    border-radius: 12px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.15);
+    margin: 4px;
+  }
+
+  .dark *::-webkit-scrollbar-track {
+    background: rgb(55, 65, 81); /* gray-700 */
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(102, 126, 234), rgb(90, 111, 216)); /* primary-500 to primary-600 */
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    min-height: 80px;
+    min-width: 80px;
+  }
+
+  .dark *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(129, 140, 248), rgb(99, 102, 241)); /* primary-400 to primary-500 */
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgb(90, 111, 216), rgb(79, 70, 229)); /* primary-600 to primary-700 */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+    transform: scaleX(1.08);
+    border: 3px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .dark *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgb(99, 102, 241), rgb(79, 70, 229)); /* primary-500 to primary-600 */
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, rgb(79, 70, 229), rgb(67, 56, 202)); /* primary-700 to primary-800 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    transform: scaleX(1.02);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark *::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, rgb(79, 70, 229), rgb(67, 56, 202)); /* primary-600 to primary-700 */
+  }
+}
+
+@layer components {
+  /* Custom scrollbar class - for specific elements if needed */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 48px; /* Extra thick for kiosk touchscreens */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-200 rounded-xl;
+    @apply dark:bg-gray-700;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.15);
+    margin: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-primary-500 to-primary-600 rounded-xl;
+    @apply dark:from-primary-400 dark:to-primary-500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    min-height: 80px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply from-primary-600 to-primary-700;
+    @apply dark:from-primary-500 dark:to-primary-600;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+    transform: scaleX(1.08);
+    border: 3px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:active {
+    @apply from-primary-700 to-primary-800;
+    @apply dark:from-primary-600 dark:to-primary-700;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    transform: scaleX(1.02);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Button styles - Kiosk Optimized with Dark Mode and Enhanced Transitions */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply min-h-[44px] min-w-[44px] active:scale-95;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500;
+    @apply dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-400;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-400;
+    @apply dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 dark:focus:ring-gray-500;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Card styles with Dark Mode and Smooth Transitions */
+  .card {
+    @apply bg-white rounded-xl shadow-lg overflow-hidden;
+    @apply dark:bg-gray-800 dark:shadow-xl;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover {
+    @apply hover:shadow-xl hover:-translate-y-1;
+    @apply dark:hover:shadow-2xl;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Input styles with Enhanced Transitions */
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply bg-white text-gray-900 placeholder-gray-400;
+    @apply dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600 dark:placeholder-gray-500;
+    @apply dark:focus:ring-primary-400 dark:focus:border-transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Prevent zoom on input focus for kiosk (iOS Safari) */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Instant theme switching - no transition animations (kiosk best practice) */
+
+  /* Slow pulse for sun icon */
+  .animate-pulse-slow {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  /* Slow ping animation for page indicator */
+  .animate-ping-slow {
+    animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes ping-slow {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    75%, 100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  /* Slide down animation for toast notifications */
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+  }
+
+  @keyframes slide-down {
+    0% {
+      transform: translate(-50%, -100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+  }
+
+  /* Subtle bounce animation for cart badge */
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  /* Blinking cursor animation for virtual keyboard */
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-100 text-primary-800;
+    @apply dark:bg-primary-900/50 dark:text-primary-200;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+    @apply dark:bg-green-900/50 dark:text-green-200;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+    @apply dark:bg-yellow-900/50 dark:text-yellow-200;
+  }
+
+  .badge-error {
+    @apply bg-red-100 text-red-800;
+    @apply dark:bg-red-900/50 dark:text-red-200;
+  }
+
+  /* ===== ENHANCED NAVIGATION ANIMATIONS ===== */
+  /* Pulse animation for navigation buttons */
+  .animate-nav-pulse {
+    animation: nav-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes nav-pulse {
+    0%, 100% {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    50% {
+      box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+  }
+
+  /* Slide in animation for navigation hint */
+  .animate-slide-bounce-left {
+    animation: slide-bounce-left 2s ease-in-out infinite;
+  }
+
+  @keyframes slide-bounce-left {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-8px);
+    }
+  }
+
+  .animate-slide-bounce-right {
+    animation: slide-bounce-right 2s ease-in-out infinite;
+  }
+
+  @keyframes slide-bounce-right {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(8px);
+    }
+  }
+
+  /* Glow effect for prominent navigation */
+  .nav-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+
+  .nav-glow:hover {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.7), 0 0 60px rgba(59, 130, 246, 0.5);
+  }
+}
+
+@layer utilities {
+  /* Smooth transitions for menu items and interactive elements */
+  .transition-theme {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Special transition for hover effects */
+  .transition-hover {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Instant response for interactions */
+  .transition-interactive {
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Dual range slider fixes for overlapping inputs */
+  input[type="range"] {
+    pointer-events: none;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    pointer-events: auto;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    pointer-events: auto;
+  }
+  
+  /* Ensure proper stacking when sliders are close */
+  .price-range-container {
+    position: relative;
+  }
+  
+  .price-range-container input[type="range"]:first-of-type {
+    z-index: auto;
+  }
+  
+  .price-range-container input[type="range"]:last-of-type {
+    z-index: auto;
+  }
+}

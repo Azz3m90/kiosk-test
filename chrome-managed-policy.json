@@ -1,0 +1,150 @@
+{
+  "_comment": "Chrome/Edge Managed Policy for Kiosk Mode",
+  "_deployment_windows": "C:\\Program Files\\Google\\Chrome\\Application\\master_preferences",
+  "_deployment_linux": "/etc/opt/chrome/policies/managed/kiosk-policy.json",
+  
+  "homepage": "https://kiosk.restaurant.com",
+  "homepage_is_newtabpage": false,
+  "RestoreOnStartup": 4,
+  "RestoreOnStartupURLs": ["https://kiosk.restaurant.com"],
+  
+  "browser": {
+    "show_home_button": false,
+    "check_default_browser": false
+  },
+  
+  "bookmark_bar": {
+    "show_on_all_tabs": false
+  },
+  
+  "distribution": {
+    "skip_first_run_ui": true,
+    "show_welcome_page": false,
+    "import_bookmarks": false,
+    "import_history": false,
+    "import_search_engine": false,
+    "suppress_first_run_bubble": true,
+    "do_not_create_desktop_shortcut": true,
+    "do_not_create_quick_launch_shortcut": true,
+    "do_not_launch_chrome": false,
+    "make_chrome_default": false
+  },
+  
+  "CommandLineFlagSecurityWarningsEnabled": false,
+  "DefaultBrowserSettingEnabled": false,
+  "DeveloperToolsDisabled": true,
+  "AllowDeletingBrowserHistory": false,
+  "AllowFileSelectionDialogs": false,
+  "FullscreenAllowed": true,
+  "KioskMode": true,
+  "TaskManagerEndProcessEnabled": false,
+  "TranslateEnabled": false,
+  "PrintingEnabled": false,
+  "ClipboardRestricted": true,
+  "IncognitoModeEnabled": false,
+  "BrowserShortcutsEnabled": false,
+  "HideWebStoreIcon": true,
+  "ShelfAutoHideBehavior": "always",
+  "ShowLogoutButtonInTray": false,
+  "SystemFeaturesDisableList": ["kAppList", "kBrowserShortcuts", "kContextMenu", "kSystemTray"],
+  "URLBlocklist": ["chrome://*", "about:*", "view-source:*"],
+  "AutofillAddressEnabled": false,
+  "AutofillCreditCardEnabled": false,
+  "BookmarkBarEnabled": false,
+  "BrowserAddPersonEnabled": false,
+  "BrowserGuestModeEnabled": false,
+  "ChromeCleanupEnabled": false,
+  "ChromeCleanupReportingEnabled": false,
+  "CloudPrintSubmitEnabled": false,
+  "DefaultDownloadDirectory": "",
+  "DownloadRestrictions": 3,
+  "EditBookmarksEnabled": false,
+  "EnableMediaRouter": false,
+  "ExternalProtocolDialogShowAlwaysOpenCheckbox": false,
+  "FullscreenAllowed": true,
+  "HideWebStoreIcon": true,
+  "ImportAutofillFormData": false,
+  "ImportBookmarks": false,
+  "ImportHistory": false,
+  "ImportSavedPasswords": false,
+  "IncognitoModeAvailability": 1,
+  "MetricsReportingEnabled": false,
+  "PasswordManagerEnabled": false,
+  "PaymentMethodQueryEnabled": false,
+  "PrintingEnabled": false,
+  "PromotionalTabsEnabled": false,
+  "SafeBrowsingEnabled": true,
+  "SafeBrowsingExtendedReportingEnabled": false,
+  "SavingBrowserHistoryDisabled": true,
+  "SearchSuggestEnabled": false,
+  "ShowAppsShortcutInBookmarkBar": false,
+  "ShowHomeButton": false,
+  "SigninAllowed": false,
+  "SyncDisabled": true,
+  "TranslateEnabled": false,
+  "UrlKeyedAnonymizedDataCollectionEnabled": false,
+  
+  "URLBlacklist": ["*"],
+  "URLWhitelist": [
+    "https://kiosk.restaurant.com",
+    "https://kiosk.restaurant.com/*",
+    "https://api.restaurant.com",
+    "https://api.restaurant.com/*"
+  ],
+  
+  "ExtensionInstallBlacklist": ["*"],
+  "ExtensionInstallWhitelist": [],
+  
+  "AllowedDomainsForApps": [
+    "kiosk.restaurant.com",
+    "api.restaurant.com"
+  ],
+  
+  "CookiesSessionOnlyForUrls": [
+    "https://kiosk.restaurant.com"
+  ],
+  
+  "DefaultCookiesSetting": 1,
+  "DefaultGeolocationSetting": 2,
+  "DefaultNotificationsSetting": 2,
+  "DefaultPopupsSetting": 2,
+  
+  "KeyboardFocusableScrollersEnabled": false,
+  
+  "SSLErrorOverrideAllowed": false,
+  
+  "AlternateErrorPagesEnabled": false,
+  
+  "BuiltInDnsClientEnabled": true,
+  
+  "ClearBrowsingDataOnExitList": [
+    "browsing_history",
+    "download_history",
+    "cookies_and_other_site_data",
+    "cached_images_and_files",
+    "password_signin",
+    "autofill",
+    "site_settings",
+    "hosted_app_data"
+  ],
+  
+  "ForcedLanguages": ["en-US"],
+  
+  "ForceEphemeralProfiles": true,
+  
+  "AudioCaptureAllowed": false,
+  "VideoCaptureAllowed": false,
+  
+  "ClipboardSettings": {
+    "DefaultClipboardSetting": 2
+  },
+  
+  "InsecureContentAllowedForUrls": [],
+  "InsecureContentBlockedForUrls": ["*"],
+  
+  "SSLVersionMin": "tls1.2",
+  
+  "ComponentUpdatesEnabled": false,
+  
+  "DefaultSearchProviderEnabled": false
+}

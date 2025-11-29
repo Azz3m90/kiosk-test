@@ -1,0 +1,50 @@
+{
+  "restaurantRef": "UOVO",
+  "restaurantName": "UOVO",
+  "restaurantFirstName": "Restaurant",
+  "restaurantLastName": "Owner",
+  "paymentMethod": "cash",
+  "orderData": {
+    "cartItems": [
+      {
+        "id": "1-1234",
+        "menuItemId": 1,
+        "ref": 1,
+        "name": "Test Item",
+        "description": "Test",
+        "basePrice": 10.0,
+        "finalPrice": 20.0,
+        "quantity": 1,
+        "image": "test.jpg",
+        "type": "food",
+        "menuCategorys": [
+          {
+            "ref": "cat1",
+            "title": "Category Item",
+            "category_ref": "cat1",
+            "category_title": "Category",
+            "quantity": 1,
+            "price": {
+              "unit_price": {
+                "amount": 1000,
+                "currency_code": "EUR",
+                "formatted_amount": "10.00 EUR"
+              },
+              "total_price": {
+                "amount": 1000,
+                "currency_code": "EUR",
+                "formatted_amount": "10.00 EUR"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "totalPrice": 20.0,
+    "deliveryMethod": "eatin",
+    "diningMethod": "eatin",
+    "customerName": "Test",
+    "customerEmail": "test@test.com"
+  },
+  "kioskId": "kiosk1"
+}

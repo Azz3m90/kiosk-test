@@ -1,0 +1,38 @@
+
+> restaurant-kiosk@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.6
+   - Environments: .env.local, .env.production
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 1896ms
+   Linting and checking validity of types ...
+
+./app/debug-logo/page.tsx
+85:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/sections/WelcomeSection.tsx
+76:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+113:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+143:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/ui/OptimizedImage.tsx
+25:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+44:5  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+Failed to compile.
+
+./components/ui/ItemOptionsModal.tsx:418:36
+Type error: Conversion of type '{ ref: string; title: string; extra: number; quantity: number; price: { unit_price: { amount: number; currency_code: string; formatted_amount: string; }; total_price: { amount: number; currency_code: string; formatted_amount: string; }; }; }' to type 'MenuItem' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type '{ ref: string; title: string; extra: number; quantity: number; price: { unit_price: { amount: number; currency_code: string; formatted_amount: string; }; total_price: { amount: number; currency_code: string; formatted_amount: string; }; }; }' is missing the following properties from type 'DrinkItem': category, id, name, description, image
+
+[0m [90m 416 |[39m               } [36melse[39m {
+ [90m 417 |[39m                 [90m// Default to menuItems for backward compatibility[39m
+[31m[1m>[22m[39m[90m 418 |[39m                 menuItemsList[33m.[39mpush({
+ [90m     |[39m                                    [31m[1m^[22m[39m
+ [90m 419 |[39m                   ref[33m:[39m choice[33m.[39mname[33m,[39m
+ [90m 420 |[39m                   title[33m:[39m choiceName[33m,[39m
+ [90m 421 |[39m                   extra[33m:[39m [33mMath[39m[33m.[39mround(choice[33m.[39mprice [33m*[39m [35m100[39m)[33m,[39m[0m
+Next.js build worker exited with code: 1 and signal: null

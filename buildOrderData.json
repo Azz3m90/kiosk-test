@@ -1,0 +1,108 @@
+{
+  "id": 16539,
+  "current_state": "CREATED",
+  "store": {
+    "ref": "Test-FastCaisse",
+    "name": "Test-FastCaisse"
+  },
+  "kiosk_id": "kiosk990",
+  "eater": {
+    "id": "",
+    "first_name": "kiosk990",
+    "last_name": "kiosk",
+    "phone_number": null,
+    "postal_code": null,
+    "city": "",
+    "extra_address_info": null,
+    "email_address": null,
+    "street": null,
+    "house_number": null,
+    "message": ""
+  },
+  "cart": {
+    "items": [
+      {
+        "ref": 1761981572559,
+        "title": "SALADE AYAM",
+        "special_instructions": "",
+        "quantity": 1,
+        "price": {
+          "unit_price": {
+            "amount": 1240,
+            "currency_code": "EUR",
+            "formatted_amount": "12.4 EUR"
+          },
+          "total_price": {
+            "amount": 1240,
+            "currency_code": "EUR",
+            "formatted_amount": "12.4 EUR"
+          }
+        },
+        "menuItems": [],
+        "menuCategorys": [
+          {
+            "ref": "1262",
+            "title": "TAILLE LARGE",
+            "category_ref": "100",
+            "category_title": "Taille BOWL SIGNATURE",
+            "quantity": 1,
+            "price": {
+              "unit_price": {
+                "amount": 300,
+                "currency_code": "EUR",
+                "formatted_amount": "3 EUR"
+              },
+              "total_price": {
+                "amount": 300,
+                "currency_code": "EUR",
+                "formatted_amount": "3 EUR"
+              }
+            }
+          }
+        ],
+        "additions": []
+      }
+    ],
+    "additional_options": null,
+    "points_redeemed": "0",
+    "loyalty_discount": "0",
+    "special_instructions": "",
+    "additional_address_information": null
+  },
+  "payment": {
+    "charges": {
+      "total": {
+        "amount": 1540,
+        "currency_code": "EUR",
+        "formatted_amount": "15.4 EUR"
+      },
+      "tax": {
+        "amount": null,
+        "currency_code": "EUR",
+        "formatted_amount": null
+      },
+      "delivery_fee": {
+        "amount": 0,
+        "currency_code": "EUR",
+        "formatted_amount": null
+      }
+    },
+    "payment_type": "counter"
+  },
+  "requested_order_time": {
+    "delivery_method": "pickup",
+    "order_time": null,
+    "day": null,
+    "time_of_day": null
+  },
+  "created_at": "2025-11-01T08:23:50Z",
+  "type": "pickup",
+  "table_name": null,
+  "delivery_location": {
+    "postal_code": null,
+    "city": "",
+    "extra_address_info": null,
+    "street": null,
+    "house_number": null
+  }
+}
